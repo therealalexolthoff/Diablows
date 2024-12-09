@@ -18,7 +18,7 @@ public class CombatActor : MonoBehaviour
     target.TakeDamage(damage);
    }
 
-   protected void OnTriggerEnter(Collider other){
+   protected virtual void OnTriggerEnter(Collider other){
     if(other.GetComponent<CombatReciever>() != null && !other.isTrigger)
     {
         if(other.GetComponent<CombatReciever>().GetFactionID() != factionID)

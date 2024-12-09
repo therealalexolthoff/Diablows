@@ -11,11 +11,21 @@ public class FireballCA : CombatActor
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(shootDirection * speed * Time.fixedDeltaTime);
     }
     public void SetShootDirection(Vector3 newDirection) {
-
+        shootDirection = newDirection;
+    }
+    protected override void OnTriggerEnter(Collider other){
+        if(other.GetComponent<CombatReciever>() && !other.isTrigger)
+    {
+        if(other.GetComponent<CombatReciever>().GetFactionID() != factionID)
+        {
+        HitReceiver(other.GetComponent<CombatReciever>());
+        Destroy(gameObject);
+        }
+    }
     }
 }

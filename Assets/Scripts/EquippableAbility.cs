@@ -51,7 +51,7 @@ public class EquippableAbility : ClassSkill
             SpawnEquippedAttack(myPlayer.transform.position + myPlayer.transform.forward);
 
             myPlayer.GetAnimator().TriggerAttack();
-            
+        
             targetedReceiver = null;
         }
         else 
