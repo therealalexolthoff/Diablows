@@ -11,6 +11,7 @@ public class ClassSkill : MonoBehaviour
     {
 
     }
+#region Getters
     public int GetSkillLevel() 
     {
         return skillLevel;
@@ -30,4 +31,5 @@ public class ClassSkill : MonoBehaviour
     {
         return iconSprite;
     }
+#endregion
 }

@@ -4,15 +4,14 @@ public class CombatReciever : Clickable
 {
 
     [SerializeField] protected float maxHP = 35;
-    protected float currentHP;
-    protected bool alive;
+    protected float currentHP = 35;
+    protected bool alive = true;
     protected int factionID = 0;
 
     protected virtual void Start()
     {
         currentHP = maxHP;
-        // protected bool alive;
-        // protected int factionID = 0;   
+   
     }
     public virtual void Die() {
         alive = false;

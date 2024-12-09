@@ -10,9 +10,7 @@ void Start(){
     agent = GetComponent<NavMeshAgent>();
 }
 void Update() {
-    if(Input.GetMouseButtonDown(0)){
-        RunClickMovement();
-    }
+
 }
 
 

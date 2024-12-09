@@ -33,10 +33,10 @@ public class PlayerController : MonoBehaviour
     {
         return GetComponent<PlayerMovement>();
     }
-    // public PlayerAnimator GetAnimator() 
-    // {
-    //     return GetComponent<PlayerAnimator>();
-    // }
+    public PlayerAnimator GetAnimator() 
+    {
+     return GetComponent<PlayerAnimator>();
+    }
     public PlayerSheet GetCharacterSheet() 
     {
         return GetComponent<PlayerSheet>();

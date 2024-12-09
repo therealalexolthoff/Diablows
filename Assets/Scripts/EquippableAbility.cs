@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EquippableAbility : ClassSkill
 {
-    [SerializeField] GameObject spawnablePrefab;
+    [SerializeField] protected GameObject spawnablePrefab;
     [SerializeField] float attackRange = 1.5f;
 
     protected CombatReciever targetedReceiver;
@@ -20,7 +20,7 @@ public class EquippableAbility : ClassSkill
         player.Movement().MoveToLocation(hit.point);
         if (hit.collider.gameObject.GetComponent<Clickable>())
         {
-            targetedReceiver = hit.collider.gameObject.GetComponent<CombatReciever>();
+            targetedReceiver = hit.collider.GetComponent<CombatReciever>();
         }
         }
     }
@@ -43,13 +43,20 @@ public class EquippableAbility : ClassSkill
         if(Vector3.Distance(myPlayer.transform.position, targetedReceiver.transform.position) <= attackRange)
         {
             myPlayer.Movement().MoveToLocation(myPlayer.transform.position);
-            Vector3 lookPos = new Vector3(targetedReceiver.transform.position.x, myPlayer.transform.position.y, targetedReceiver.transform.position.x);
+
+            Vector3 lookPos = new Vector3(targetedReceiver.transform.position.x, myPlayer.transform.position.y, targetedReceiver.transform.position.z);
+
             myPlayer.transform.LookAt(lookPos);
+
             SpawnEquippedAttack(myPlayer.transform.position + myPlayer.transform.forward);
+
+            myPlayer.GetAnimator().TriggerAttack();
+            
             targetedReceiver = null;
         }
         else 
         {
+            // Chase target
             myPlayer.Movement().MoveToLocation(targetedReceiver.transform.position);
         }
     }

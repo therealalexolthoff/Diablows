@@ -51,6 +51,7 @@ public class PlayerSheet : MonoBehaviour
 
     #endregion
 
+    #region HP/Mana
     public float GetMaxHP() {
         return maxHitPoints;
     }
@@ -58,5 +59,6 @@ public class PlayerSheet : MonoBehaviour
     {
         return maxMana;
     }
+#endregion
 }
 

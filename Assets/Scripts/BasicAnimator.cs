@@ -10,4 +10,14 @@ public class BasicAnimator : MonoBehaviour
    {
     thisAnimator.SetBool("walking", val);
    }
+   public virtual void TriggerAttack() {
+    thisAnimator.SetTrigger("Attack");
+   }
+    public virtual void TriggerDeath(){
+    thisAnimator.SetTrigger("Die");
+    }
+
+    public virtual void TriggerRevive(){
+    thisAnimator.SetTrigger("Revive");
+    }
 }
