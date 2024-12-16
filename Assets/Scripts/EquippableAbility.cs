@@ -15,7 +15,8 @@ public class EquippableAbility : ClassSkill
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-
+        Physics.queriesHitTriggers = false;
+        
         if(Physics.Raycast(ray, out hit)){
         player.Movement().MoveToLocation(hit.point);
         if (hit.collider.gameObject.GetComponent<Clickable>())

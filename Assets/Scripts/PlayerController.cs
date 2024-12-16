@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] EquippableAbility ability2;
 
     int factionID = 1;
+    bool alive = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!alive) return;
         if (Input.GetMouseButtonDown(0) && ability1 != null) UseAbility1();
         if (Input.GetMouseButtonDown(1) && ability2 != null) UseAbility2();
 
@@ -46,6 +48,12 @@ public class PlayerController : MonoBehaviour
         return factionID;
     }
     #endregion
+    public void TriggerDeath(){
+        alive = false;
+        GetAnimator().TriggerDeath();
 
-
+    }
+    public void TriggerRevive(){
+        GetAnimator().TriggerRevive();
+    }
 }
